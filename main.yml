@@ -1,0 +1,7 @@
+---
+- hosts: openstack
+  vars_files:
+    - ./vault.yml
+  tasks:
+  - name: Check connectivity
+    command: id
