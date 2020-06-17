@@ -1,0 +1,7 @@
+---
+- name: Task to be run on Controller node
+  hosts: controller
+  vars_files:
+    - ./vault.yml
+  tasks:
+  - include: controller/initial-setup.yml

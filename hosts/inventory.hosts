@@ -1,8 +1,14 @@
 [controller]
 192.168.56.112
+[controller:vars]
+ansible_user=root
+ansible_password= "{{ root_password }}"
 
 [compute]
 192.168.56.113
+[compute:vars]
+ansible_user=root
+ansible_password= "{{ root_password }}"
 
 [openstack:children]
 controller

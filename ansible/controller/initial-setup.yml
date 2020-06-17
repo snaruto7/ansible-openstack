@@ -1,0 +1,20 @@
+---
+  - name: Set the hostname
+    hostname:
+      name: controller.openstack.com
+
+  - name: Register the redhat subscription
+    redhat_subscription:
+      state: present
+      username: "{{ rhsm_user_controller }}"
+      password: "{{ rhsm_password_controller }}"
+      auto_attach: true
+
+  - name: Enable required Redhat Repos
+    rhsm_repository:
+      name: "{{ item }}"
+      state: enabled
+    with_items:
+      - rhel-7-server-optional-rpms
+      - rhel-7-server-extras-rpms
+      - rhel-7-server-rh-common-rpms
